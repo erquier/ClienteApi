@@ -33,24 +33,15 @@ public class Main {
         });
         
         
-                    get("/form", (req, res)->{
-                StringBuilder ret = new StringBuilder();
-                ret.append("<form action='/agregar' method='post'>");
-                ret.append("Nombre:<br>"+"<input type='text' name='nombre'>"
-
-                +"Telefono:<br>"
-                +"<input type=\"text\" name=\"telefono\" >" 
-                +"<br><br>"
-                +"Direccion:<br>"
-                +"<input type=\"text\" name=\"direccion\">" 
-                +"<br><br>"
-                +"Estado:<br>"	
-                +"<input type=\"text\" name=\"estado\">" 
-                +"<br><br>"
-                +"<input type=\"submit\" value=\"Registrar\">" 
-                +"</form>" );
-
-                return ret.toString();
+                 get("/form", (req, res)->{
+                 res.redirect("crear.html");
+                return null;
             });
+                    
+                    
+              get("/reserva", (req, res)->{
+              res.redirect("form.html");
+              return null;
+              });
     }
 }
