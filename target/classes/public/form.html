@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<script src= "app.js"> </script>
 <form action="http://localhost:4567/reservar" method="post">
 
   Id Cliente:<br>
-  <input type="int" name="IDcliente"> 
+  <input type="int" name="IDcliente">
   <br>
   Fecha de llegada:<br>
-  <input type="date" name="fecha_llegada" > 
+  <input type="date" name="fecha_llegada" >
   <br><br>
   Fecha De Salida:<br>
-  <input type="date" name="fecha_salida"> 
+  <input type="date" name="fecha_salida">
   <br><br>
-  <input type="submit" value="Registrar"> 
-</form> 
+  <button type="submit" value="Registrar" onclick="crearCliente()">Registrar</button> 
+</form>
 
 </body>
 </html>

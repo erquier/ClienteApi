@@ -34,7 +34,8 @@ public class Main {
         
         
                  get("/form", (req, res)->{
-                 res.redirect("crear.html");
+                 
+                 res.redirect("crear.html", 200);
                 return null;
             });
                     
