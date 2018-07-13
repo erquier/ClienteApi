@@ -9,11 +9,8 @@ function verCliente(){
 //Crear cliente
 function crearCliente(){
 
-    alert("ashgfsajfhasfa");
-    
-    
     $.post( "http://localhost:4567/agregar",
-    
+
 
 {
     nombre   : $('#Nombre').val(),
@@ -25,7 +22,7 @@ function crearCliente(){
       alert( "Dato insertado: " + data );
      }, "json" );
   }
-/*
+
 //Crear Reservacion a Cliente Especifico
 function crearReserveraACliente(){
     $.post( "http://localhost:4567/reserva",
@@ -45,8 +42,9 @@ function verReservaPorId(id){
       $( "#nombre" ).html( data.nombre );
     }, "json" );
 }
-//Ver Lista de reservaciones
-function verLista(//Crear Reservacion a Cliente Especifico
+
+
+//Crear Reservacion a Cliente Especifico
 function crearReserveraACliente(){
     $.post( "http://localhost:4567/reserva",
 {    
@@ -168,4 +166,4 @@ function eliminarReserva(id){
       $("fecha_llegada").html(data.fecha_llegada),
       $("fecha_salida").html(data.fecha_salida);
     }, "json" );
-    */
+    

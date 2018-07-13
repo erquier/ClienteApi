@@ -1,35 +1,44 @@
+//probar conexion de app.js con index.html
+
+$("#probando-jquery").click(function(){
+alert("todo esta funcionando");
+});
+
+function probandojs() {
+alert("todo esta funcionando");
+}
+
 //ver Cliente
-function verCliente(){
+$( "#ver-cliente-btn" ).click(function(){
     $.get( "http://localhost:4567/ver/1", function( data ) {
       $( "#nombre" ).html( data.nombre );
     }, "json" );
 
-}
+});
+
 
 //Crear cliente
-function crearCliente(){
+function crearCliente(id){
 
-    alert("ashgfsajfhasfa");
-    
-    
     $.post( "http://localhost:4567/agregar",
-    
+
 
 {
     nombre   : $('#Nombre').val(),
     telefono : $('#Telefono').val(),
     direccion: $('#Direccion').val(),
-    estado   : $('#Estado').val()   
+    estado   : $('#Estado').val()
 })
      .done(function( data ) {
       alert( "Dato insertado: " + data );
      }, "json" );
   }
-/*
+
+
 //Crear Reservacion a Cliente Especifico
-function crearReserveraACliente(){
+function crearReserveraACliente(id){
     $.post( "http://localhost:4567/reserva",
-{    
+{
     idcliente:$('#IDcliente').val(),
     fecha_llegada:$('fecha_llegada').val(),
     fecha_salida:$('fecha_salida').val()
@@ -45,17 +54,16 @@ function verReservaPorId(id){
       $( "#nombre" ).html( data.nombre );
     }, "json" );
 }
-//Ver Lista de reservaciones
-function verLista(//Crear Reservacion a Cliente Especifico
-function crearReserveraACliente(){
+//Crear Reservacion a Cliente Especifico
+function crearReserveaACliente(){
     $.post( "http://localhost:4567/reserva",
-{    
+{
     idcliente:$('#IDcliente').val(),
     fecha_llegada:$('fecha_llegada').val(),
     fecha_salida:$('fecha_salida').val()
-})
+});
 
-    .done(function(data){
+    $.done(function(data){
      alert("Dato insertado:" + data);
         }, "json");
     }
@@ -66,17 +74,19 @@ function verReservaPorId(id){
     }, "json" );
 }
 //Ver Lista de reservaciones
-function verLista(){
-    
+function verLista(id){
+
+  $.display( "http://localhost:4567/reserva/"+id, function( data ) {
+  $( "#IDcliente" ).html( data.IDcliente )
+{
+
 $.ajax({
             type: 'POST',
             url: 'http://localhost:4567/reserva/',
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (VerDatosTabla) {
-              
-                var table = '<thead><tr><td>IDcliente</td><td>Nombre</td>' +
-            '<td>Direccion</td><td>Telefono</td><td>Estado</td></thead><tbody>';
+var table='<thead><tr><td>IDcliente</td><td>Nombre</td><td>Direccion</td><td>Telefono</td><td>Estado</td></thead><tbody>';
                 // loop each record
                 for (var i = 0; i < VerDatosTabla.d.length; i++) {
                     table +=  '<tr>'
@@ -84,83 +94,58 @@ $.ajax({
                               '<td>' + VerDatosTabla.d[i].Nombre+     '</td>' +
                               '<td>' + VerDatosTabla.d[i].Direccion + '</td>' +
                               '<td>' + VerDatosTabla.d[i].Telefono +  '</td>' +
-                              '<td>' + VerDatosTabla.d[i].Estado +    '</td>' 
-                              
+                              '<td>' + VerDatosTabla.d[i].Estado +    '</td>'
+
                               }
                 table += '</tbody>';
                $('#verdatostabla').html(table).dataTable();
-                
-        
+
+
             }
 
-        });
-    
-    
-    
+        },"json");
+
+
+
 }
 //Actualizar una reservacion
 function actualizarReservacion(id){
     $.put( "http://localhost:4567/reserva"+id,
-{    
+{
     idcliente:$('#IDcliente').val(),
     fecha_llegada:$('fecha_llegada').val(),
     fecha_salida:$('fecha_salida').val()
 })
 
-    .done(function(data){
+    $.done(function(data){
      alert("Dato Actualizado:" + data);
         }, "json");
     }
+
 //Eliminar una reservacion
 function eliminarReserva(id){
-      $.delete( "http://localhost:4567/reserva/"+id, function( data ) {
-      $( "#IDcliente" ).html( data.IDcliente ),
-      $("fecha_llegada").html(data.fecha_llegada),
-){
-    
-$.ajax({
-            type: 'POST',
-            url: 'http://localhost:4567/reserva/',
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            success: function (VerDatosTabla) {
-              
-                var table = '<thead><tr><td>IDcliente</td><td>Nombre</td>' +
-            '<td>Direccion</td><td>Telefono</td><td>Estado</td></thead><tbody>';
-                // loop each record
-                for (var i = 0; i < VerDatosTabla.d.length; i++) {
-                    table +=  '<tr>'
-                              '<td>' + VerDatosTabla.d[i].IDcliente+  '</td>' +
-                              '<td>' + VerDatosTabla.d[i].Nombre+     '</td>' +
-                              '<td>' + VerDatosTabla.d[i].Direccion + '</td>' +
-                              '<td>' + VerDatosTabla.d[i].Telefono +  '</td>' +
-                              '<td>' + VerDatosTabla.d[i].Estado +    '</td>' 
-                              
-                              }
-                table += '</tbody>';
-               $('#verdatostabla').html(table).dataTable();
-                
-        
-            }
+      $.delete( "http://localhost:4567/reserva/"+id,
 
-        });
-    
-    
-    
-}
+      function( data )
+      {  $( "#IDcliente" ).html( data.IDcliente ),
+        $("fecha_llegada").html(data.fecha_llegada),
+      });
+    }
+
 //Actualizar una reservacion
 function actualizarReservacion(id){
     $.put( "http://localhost:4567/reserva"+id,
-{    
+{
     idcliente:$('#IDcliente').val(),
     fecha_llegada:$('fecha_llegada').val(),
     fecha_salida:$('fecha_salida').val()
 })
 
-    .done(function(data){
+    $.done(function(data){
      alert("Dato Actualizado:" + data);
         }, "json");
     }
+
 //Eliminar una reservacion
 function eliminarReserva(id){
       $.delete( "http://localhost:4567/reserva/"+id, function( data ) {
@@ -168,4 +153,4 @@ function eliminarReserva(id){
       $("fecha_llegada").html(data.fecha_llegada),
       $("fecha_salida").html(data.fecha_salida);
     }, "json" );
-    */
+}
