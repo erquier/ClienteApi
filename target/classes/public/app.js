@@ -11,7 +11,7 @@ function verCliente(){
 //Crear cliente
 function crearCliente(){
 
-    $.post( "http://localhost:4567/agregar"+id,
+    $.post( "http://localhost:4567/agregar",
 
 
 {
@@ -28,7 +28,7 @@ function crearCliente(){
 
 //Crear Reservacion a Cliente Especifico
 function crearReserveraACliente(){
-    $.post( "http://localhost:4567/reserva/id",
+    $.post( "http://localhost:4567/reserva",
 {
     idcliente:$('#IDcliente').val(),
     fecha_llegada:$('fecha_llegada').val(),
