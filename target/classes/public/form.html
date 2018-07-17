@@ -1,20 +1,27 @@
+
 <!DOCTYPE html>
 <html>
-<body>
-<script src= "app.js"> </script>
-<form action="http://localhost:4567/reservar" method="post">
+    <head>
+        <meta charset="UTF-8">
+        <title>reservar</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src= "app.js"></script>
 
-  Id Cliente:<br>
-  <input type="int" name="IDcliente">
-  <br>
-  Fecha de llegada:<br>
-  <input type="date" name="fecha_llegada" >
-  <br><br>
-  Fecha De Salida:<br>
-  <input type="date" name="fecha_salida">
-  <br><br>
-  <button type="submit" value="Registrar" onclick="crearReserveraACliente()">Registrar</button> 
-</form>
+    </head>
+    <body>
+        <form method="post">
 
-</body>
+            Id Cliente:<br>
+            <input type="int" name="IDcliente">
+            <br>
+            Fecha de llegada:<br>
+            <input type="date" name="fecha_llegada" >
+            <br><br>
+            Fecha De Salida:<br>
+            <input type="date" name="fecha_salida">
+            <br><br>
+            <button type="submit" value="Registrar" onclick="crearReserveraACliente()">Registrar</button> 
+        </form>
+
+    </body>
 </html>

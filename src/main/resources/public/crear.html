@@ -1,25 +1,32 @@
-              <html>
-                  <head>
-                    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-                    <script src= "app.js"> </script>
-                   
-                  </head>
-               <form method='post'>                  
-                Nombre:<br>
-                <input type='string' name='Nombre'><br>
 
-                Telefono:<br>
-                <input type=\"string\" name=\"Telefono\" >
-                <br><br>
-                
-                Direccion:<br>
-                <input type=\"string\" name=\"Direccion\">
-                <br><br>
-                
-                Estado:<br>
-                <input type=\"int\" name=\"Estado\">
-                <br><br>
-                
-                <input type='button' onclick="crearCliente()" value="Registrar">
-                </form>
-                </html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Agregar Cliente</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src= "app.js"></script>
+
+    </head>
+    <body>
+        <form method='post'>                  
+            Nombre:<br>
+            <input type='string' name='nombre'><br>
+
+            Telefono:<br>
+            <input type="string" name="telefono" >
+            <br><br>
+
+            Direccion:<br>
+            <input type="string" name="direccion">
+            <br><br>
+
+            Estado:<br>
+            <input type="int" name="estado">
+            <br><br>
+
+            <input type='button' onclick="crearCliente(id)" value="Registrar">
+        </form>
+
+    </body>
+</html>
